@@ -1,5 +1,13 @@
 .App {
-  text-align: center;
+  text-align: left;
+}
+
+h2{
+  margin-left: 20px;
+}
+
+button{
+  margin: 30px 30px;
 }
 
 .App-logo {
