@@ -1,7 +1,7 @@
 import React from "react";
 import {useState} from "react";
 import './searchFunction.css';
-import InputBar from "./input_bar";
+import InputBar from "./inputBar";
 import SearchResultList from "./searchResultList";
 
 function SearchBar() {

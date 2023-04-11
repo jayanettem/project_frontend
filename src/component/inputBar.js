@@ -1,11 +1,18 @@
 import React from "react";
 import {FaSearch} from 'react-icons/fa';
 import './searchFunction.css'
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function InputBar({setResults}) {
     const [input,setInput] =useState("");
-    
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            fetchData(input);
+        }, 500); // adjust the delay time as needed
+        return () => clearTimeout(timer);
+    }, [input]);
+
     const fetchData = (value) => {
         fetch("http://localhost:8089/api/employee/Emp?var="+value)
         .then((response)=> response.json())
@@ -22,7 +29,6 @@ function InputBar({setResults}) {
 
     const handleChange = (value) =>{
         setInput(value)
-        fetchData(value)
     }
 
     return(
@@ -37,5 +43,4 @@ function InputBar({setResults}) {
         </div>
     )
 }
-
 export default InputBar;
